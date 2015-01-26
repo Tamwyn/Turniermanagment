@@ -49,7 +49,7 @@ GRANT ALL PRIVILEGES ON `turniermanagment`.* TO 'turniere'@'localhost';
 Webinterface installieren
 1. Das öffentliche Verzeichnis des Webservers aufrufen und eine Kommandozeile öffnen.
 
-2. „git clone https://github.com/Tamwyn/Turniermanagment.git“ ausführen und die aktuelle Version herunterladen.
+2. "git clone https://git.scimeda.de/thore/turniermanagment.git" ausführen und die aktuelle Version herunterladen.
 
 3. Die Datenbankeinstellungen im Ordner subpages von Tournament.php und AddFencer.php sowie in libs/ExportCSV.php Nutzernamen und Passwort durch die zuvor angelegten Nutzerdaten ersetzen.
 
