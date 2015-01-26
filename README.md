@@ -1,7 +1,9 @@
-Turnieramanagment
-Ein Webinterface zur einfachen Verwaltung von Turnieren. Funktionsumfang: Abspeichern in einer Datenbank, Mailversand und das Abspeichern von Turnieren in "Google Calendar".
+Turniermanagment
+Ein Webinterface zur einfachen Verwaltung von Turnieren. 
+Funktionsumfang: Abspeichern der Turniere in einer Datenbank, Mailversand an zutreffende Sportler und das Abspeichern von Turnieren in "Google Calendar".
 
 
+Nutzungshinweise
 Anlegen von Turnieren:
 Neue Turniere können im Webinterface im Reiter "Turnier hinzufügen" angelegt werden.
 Die Felder mit dem Namen, der Ausschreibung und dem Veranstaltungsort sind Pflichtfelder. Sind diese nicht ausgefüllt schlägt das Hinzufügen fehl. Das Datum lässt sich einfach mithilfe des Kalenderformulars eingeben, sobald man auf die Eingabezeile hierfür klickt.
@@ -21,7 +23,12 @@ Es ist möglich die erfassten Turniere nach Waffe, Altersklasse und Datum sortie
 Python
 
 Emails versenden:
-Der in Python verfasste "Turnierkurier" ist ein Script, welches die kommenden Turniere der nächsten 6 Wochen aus der Datenbank abfragt, die Alterklassen und Waffen für dieses Turnier ermittelt und anschließend mit den gespiecherten Daten der Fechter abgleicht um diese bei Übereinstimmung per mail zu informieren.
+Der in Python verfasste "Turnierkurier" ist ein Script, welches die kommenden Turniere der nächsten 6 Wochen aus der Datenbank abfragt, die Alterklassen und Waffen für dieses Turnier ermittelt und anschließend mit den gespeicherten Daten der Fechter abgleicht um diese bei Übereinstimmung per Mail zu informieren.
 
 Sollte dieses Script zu Demonstrationszwecken gestartet werden empfiehlt es sich den Testmodus durch setzen der Variable "test = 1" am Anfang des Scriptes zu setzen.
-Die Folge ist, dass es die Mail nciht zu versenden versucht und stattdessen in einer Konsole den Mailtext ausgibt.
+Die Folge ist, dass es die Mail nicht zu versenden versucht und stattdessen in einer Konsole den Mailtext ausgibt.
+
+
+Kalender ausfüllen:
+Das Script "calendar-push" schreibt die Turniere nach Waffen sortiert in eigene Google Kalender, welche auf nahezu allen Plattformen eingebunden werden können.     (Outlook, Thunderbird, iOS, Android). Dies ist auch der Grund, weshalb die Entscheidung auf ein proprietäres Kalenderformat gefallen ist. Es ist unter Android nicht ohne erweiterten Aufwand einen anderen Kalender importieren. Dies ist mit vorinstallierten Apps nur mit Google Calendar und den integrierten Freigaben möglich.
+
