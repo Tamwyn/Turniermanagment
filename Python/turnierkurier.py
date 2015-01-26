@@ -198,6 +198,7 @@ def Inform(informQuery, TurID): #Schreibe die Emails
 	if (TurPflicht == 1): mail += "Dieses Turnier ist ein wichtiges lokales Turnier und es ist ärgerlich dieses zu verpassen\n" #Fuege einen besonderen Hinweis auf wichtige bzw. ortsnahe Turniere hinzu
 	mail += "Bitte meldet euch rechtzeitig zurück, ob ihr starten könnt\n"
 	mail += "Mit Fechtergruß\n"
+	mail += "--)--------"
 	mail += "Das Turniermanagmentsystem des FC Lütjensee"
 
 	mail = mail.decode('utf-8') #Konvertiere den Text zu utf-8

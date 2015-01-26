@@ -143,7 +143,7 @@ CREATE TABLE `turnier` (
 
 LOCK TABLES `turnier` WRITE;
 /*!40000 ALTER TABLE `turnier` DISABLE KEYS */;
-INSERT INTO `turnier` VALUES (0,'','',0,'1970-01-01','',0),(1,'Hamburger Meisterschaften','hamburger-fechtverband.de/meisterschaften.pdf',1,'2015-02-01','Hamburg',0),(2,'Hannoveraner Floretturnier','fechten-hannover.de/ausschreibung.pdf',1,'2015-02-07','Hannover',0),(3,'Münchener Multiturnier','turniere.fechten.org/7834.pdf',0,'2015-02-19','München',0);
+INSERT INTO `turnier` VALUES (0,'','',0,'1970-01-01','',0),(1,'Hamburger Meisterschaften','hamburger-fechtverband.de/meisterschaften.pdf',1,'2015-02-20','Hamburg',0),(2,'Hannoveraner Floretturnier','fechten-hannover.de/ausschreibung.pdf',1,'2015-02-27','Hannover',0),(3,'Münchener Multiturnier','turniere.fechten.org/7834.pdf',0,'2015-02-19','München',0);
 /*!40000 ALTER TABLE `turnier` ENABLE KEYS */;
 UNLOCK TABLES;
 
