@@ -11,7 +11,7 @@
                 url         : 'libs/GenerateCSV.php', 
                 data        : 'export',
                 success     : function (data) {
-                    alert("success");//setTimeout("self.location.href='libs/turniere.csv'",1000);
+                    setTimeout("self.location.href='libs/turniere.csv'",1000);
                 }
             });
         });
