@@ -15,7 +15,7 @@ mysqli_query($connect,"SET NAMES UTF8");
 
 
 $dir = getcwd(); //Ermittle das aktuelle Verzeichnis, um in diesem die Liste abzuspeichern
-mysqli_real_escape_string($connect, $dir);//Sorge dafuer, dass die Schraegstriche von MySQL  ignoriert werden
+$dir = mysqli_real_escape_string($connect, $dir);//Sorge dafuer, dass die Schraegstriche von MySQL  ignoriert werden
 //Diese SQL Query ruft zuerst alle Daten ab inklusive der zugewiesenen Namen ( join jahrgaenge und waffen) um anschließend die Ergebnisse zu sortieren und diese 
 //wiederum mithilfe des UNION mit den Spaltenueberschriften zu verbinden, welche im csv noetig sind.
 
@@ -33,11 +33,11 @@ $exportquery = "SELECT 'Datum' , 'Name' , 'Ort', 'Jahrgang', 'Waffe'
 							JOIN waffen AS w ON wt.WaffeID = w.ID
 							WHERE Datum > date(now()) )AS Question
 					ORDER BY WaffeID, JahrgID, Datum ASC ) AS ordered
-				INTO OUTFILE 'D:/xampp/htdocs/fcl/Turniereingabe/libs/turniere.csv'
+				INTO OUTFILE" . "'" . $dir . "/turniere.csv'
 				FIELDS TERMINATED BY ','
 				ENCLOSED BY '\"'
 				LINES TERMINATED BY '\n';";
 mysqli_query($connect, $exportquery);
-//echo mysqli_error($connect); //Debugging
+echo mysqli_error($connect); //Debugging
 echo ($dir . "/turniere.csv");
 ?>
