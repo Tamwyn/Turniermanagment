@@ -67,7 +67,7 @@ def GetAndProcessData(TurID):
 	if (loglvl ==1): print("Waffe: " + str(weapons))
 
 	fechter = FindFencers(altersklassen , weapons , TurID)#Suche nach Fechtern fuer die dieses Turnier geeignet ist
-	if (loglvl ==1): print("Fechter(GetAndProcessData): " + str(fechter)) #Debugging
+	if (loglvl ==1): print("Fechter: " + str(fechter)) #Debugging
 
 	return fechter #Diese Fechter sollen informiert werden
 
@@ -213,7 +213,7 @@ def Inform(informQuery, TurID): #Schreibe die Emails
 	
 		msg = MIMEText(mail, 'plain', 'utf-8')
 		msg["Subject"] = "Ein Turnier kommt: " + str(TurName)
-		msg["From"] = "thore@datensumpf.de"
+		msg["From"] = "turniere@fc-luetjensee.de"
 	
 		for fechter in informQuery:
 			if (loglvl == 1): print("FechterID: " + str(fechter))
@@ -231,7 +231,7 @@ def Inform(informQuery, TurID): #Schreibe die Emails
 			msg["To"] = email
 	
 			##Versende die Email##
-			s.sendmail("turniere@fc-luetjensee.de", [email] , msg.as_string()) #
+			s.sendmail("turniere@fc-luetjensee.de", email , msg.as_string()) #
 		
 		s.quit() ##Schließe die Verbindung zum Mailserver
 

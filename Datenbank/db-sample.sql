@@ -35,7 +35,7 @@ CREATE TABLE `altersklassen` (
 
 LOCK TABLES `altersklassen` WRITE;
 /*!40000 ALTER TABLE `altersklassen` DISABLE KEYS */;
-INSERT INTO `altersklassen` VALUES (1,3),(1,4),(2,2),(2,3),(2,4),(3,0),(3,1),(3,2),(3,3),(3,4),(3,5);
+INSERT INTO `altersklassen` VALUES (1,3),(1,4),(2,2),(2,3),(2,4),(3,0),(3,1),(3,2),(3,3),(3,4),(3,5),(4,2),(4,3),(4,4),(5,1),(5,2),(6,1),(6,2),(6,3),(6,4),(7,2),(7,3),(7,4);
 /*!40000 ALTER TABLE `altersklassen` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,7 +63,7 @@ CREATE TABLE `fechter` (
 
 LOCK TABLES `fechter` WRITE;
 /*!40000 ALTER TABLE `fechter` DISABLE KEYS */;
-INSERT INTO `fechter` VALUES (0,'','',0,''),(1,'Säbelfechter','Ein',1951,'alt@saebel.de'),(2,'Florettfechter','Ein',1951,'jung@florett.de'),(3,'Beidesfechter','Ein',1997,'beides@fechten.de'),(4,'Schüler','Ein',2002,'ein@schueler.de'),(5,'Bjugend','Ein',2000,'ein@bjugend.de');
+INSERT INTO `fechter` VALUES (0,'','',0,''),(1,'Säbelfechter','Ein',1951,'alt@saebel.de'),(2,'Florettfechter','Ein',1951,'jung@florett.de'),(3,'Beidesfechter','Ein',1997,'beides@fechten.de'),(4,'Schüler','Ein',2002,'ein@schueler.de'),(5,'Bjugend','Ein',2000,'ein@bjugend.de'),(6,'Ajugend','Ein',1998,'ein@ajugend.de'),(7,'Fechter','Starker',1997,'fechten@starker.de'),(8,'Fechterin','Starke',2002,'fechten@starke.de');
 /*!40000 ALTER TABLE `fechter` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +87,7 @@ CREATE TABLE `fechterwaffe` (
 
 LOCK TABLES `fechterwaffe` WRITE;
 /*!40000 ALTER TABLE `fechterwaffe` DISABLE KEYS */;
-INSERT INTO `fechterwaffe` VALUES (0,0),(1,0),(2,1),(3,0),(3,1),(4,0),(5,0),(5,1);
+INSERT INTO `fechterwaffe` VALUES (0,0),(1,0),(2,1),(3,0),(3,1),(4,0),(5,0),(5,1),(6,0),(6,1),(7,1),(8,1);
 /*!40000 ALTER TABLE `fechterwaffe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,7 +134,7 @@ CREATE TABLE `turnier` (
   `casted` int(1) DEFAULT '0',
   PRIMARY KEY (`ID`),
   UNIQUE KEY `id_UNIQUE` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,7 +143,7 @@ CREATE TABLE `turnier` (
 
 LOCK TABLES `turnier` WRITE;
 /*!40000 ALTER TABLE `turnier` DISABLE KEYS */;
-INSERT INTO `turnier` VALUES (0,'','',0,'1970-01-01','',0),(1,'Hamburger Meisterschaften','hamburger-fechtverband.de/meisterschaften.pdf',1,'2015-02-20','Hamburg',0),(2,'Hannoveraner Floretturnier','fechten-hannover.de/ausschreibung.pdf',1,'2015-02-27','Hannover',0),(3,'Münchener Multiturnier','turniere.fechten.org/7834.pdf',0,'2015-02-19','München',0);
+INSERT INTO `turnier` VALUES (0,'','',0,'1970-01-01','',0),(1,'Hamburger Meisterschaften','hamburger-fechtverband.de/meisterschaften.pdf',1,'2015-02-01','Hamburg',0),(2,'Hannoveraner Floretturnier','fechten-hannover.de/ausschreibung.pdf',1,'2015-02-07','Hannover',0),(3,'Münchener Multiturnier','turniere.fechten.org/7834.pdf',0,'2015-02-19','München',0),(4,'Internationales Säbelturnier','turniere.fechten.org/7625.pdf',0,'2015-02-28','Mühlheim',0),(5,'Landesmeisterschaften SH','fbsh.de/lmsh.pdf',1,'2015-02-21','Kiel',0),(6,'Internationales Florettturnier','turniere.fechten.org/7626.pdf',0,'2015-02-22','Eislingen',0);
 /*!40000 ALTER TABLE `turnier` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -192,7 +192,7 @@ CREATE TABLE `waffetur` (
 
 LOCK TABLES `waffetur` WRITE;
 /*!40000 ALTER TABLE `waffetur` DISABLE KEYS */;
-INSERT INTO `waffetur` VALUES (0,0,1),(1,0,0),(2,1,0),(3,0,0),(3,1,0);
+INSERT INTO `waffetur` VALUES (0,0,1),(1,0,0),(2,1,0),(3,0,0),(3,1,0),(4,0,0),(5,0,0),(5,1,0),(6,1,0),(7,1,0);
 /*!40000 ALTER TABLE `waffetur` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -205,4 +205,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-01-26  0:51:43
+-- Dump completed on 2015-01-29 15:48:59
