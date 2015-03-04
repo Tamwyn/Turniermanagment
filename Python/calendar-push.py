@@ -67,7 +67,7 @@ flow = OAuth2WebServerFlow(client_id, client_secret, scope)
 
 
 
-def PushEvent(Waffe,Turnier, Ausschreibung, Datum, Ort): #Speichere das Turnier im Kalender fuer Saebel
+def PushEvent(Waffe,Turnier, Ausschreibung, Datum, Ort, Jahrgaenge): #Speichere das Turnier im Kalender fuer Saebel
 
   # Lege eine Datei an, in der die letzendliche Authentifizierung gespeichert wird
   storage = Storage('credentials.dat')
@@ -91,13 +91,13 @@ def PushEvent(Waffe,Turnier, Ausschreibung, Datum, Ort): #Speichere das Turnier 
 
   #Versuche schreibend auf den Kalender zuzugreifen
   try:
-
+  	description = Ausschreibung + " Jahrgänge: " + Jahrgaenge
     # Erstelle ein Objekt mit den Kalenderdaten fuer Saebel
     
     event = {
       'summary': Turnier, #Name des Termins --> Turniername
       'location':  Ort ,  #Wo?
-      'description': Ausschreibung , #Beschreibung des Termins --> Link zur Ausschreibung
+      'description': description , #Beschreibung des Termins --> Link zur Ausschreibung + Jahrgaenge
       'start': {
         'date': Datum
       },                             #Beginn und Ende
@@ -145,10 +145,15 @@ for event in SabourEvents: #Gehe fuer jedes gefundene Turnier einzeln vor
   Ausschreibung = str(event[1])
   Datum = str(event[2])
   Ort = event[3].encode('utf-8')
-  if (loglvl == 1): print Turnier + " " + Ausschreibung + " " + Datum + " " + Ort
+  querySabourJahrg = ("SELECT JahrgName FROM turnier AS t JOIN altersklassen AS ak ON t.ID = ak.TurnierID JOIN jahrgaenge AS jg ON ak.JahrgID = jg.ID WHERE t.ID=")
+  querySabourJahrg += str(event[4])
+  cursor.execute(querySabourJahrg)
+  Jahrgaenge = str(formatize.format(cursor.fetchall()))
+
+  if (loglvl == 1): print Turnier + " " + Ausschreibung + " " + Datum + " " + Ort + " " + Jahrgaenge 
 
   #Sende die Saebelturniere an den Kalender
-  PushEvent(WaffeID,Turnier, Ausschreibung, Datum, Ort)
+  PushEvent(WaffeID, Turnier, Ausschreibung, Datum, Ort, Jahrgaenge)
 
   #Speichere ab, dass dieses Turnier im Saebelkalender gespeichert wurde
   MarkTournament(event[4], WaffeID )
@@ -164,10 +169,15 @@ for event in FleurEvents:
   Ausschreibung = str(event[1])
   Datum = str(event[2])
   Ort = event[3].encode('utf-8')
-  if (loglvl == 1): print Turnier + " " + Ausschreibung + " " + Datum + " " + Ort
+  queryFleurJahrg = ("SELECT JahrgName FROM turnier AS t JOIN altersklassen AS ak ON t.ID = ak.TurnierID JOIN jahrgaenge AS jg ON ak.JahrgID = jg.ID WHERE t.ID=")
+  queryFleurJahrg += str(event[4])
+  cursor.execute(queryFleurJahrg)
+  Jahrgaenge = cursor.fetchall()
+
+  if (loglvl == 1): print Turnier + " " + Ausschreibung + " " + Datum + " " + Ort + " " + Jahrgaenge 
 
   #Sende die Florettturniere an den Kalender
-  PushEvent(WaffeID, Turnier, Ausschreibung, Datum, Ort)
+  PushEvent(WaffeID, Turnier, Ausschreibung, Datum, Ort, Jahrgaenge)
 
   #Speichere ab, dass diese Turnier im Florettkalender gespeichert wurde
   MarkTournament(event[4], WaffeID)
